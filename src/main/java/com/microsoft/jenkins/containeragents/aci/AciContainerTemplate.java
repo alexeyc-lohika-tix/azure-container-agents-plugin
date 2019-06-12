@@ -17,6 +17,7 @@ import hudson.model.Descriptor;
 import hudson.model.Item;
 import hudson.model.Label;
 import hudson.model.labels.LabelAtom;
+import hudson.model.Node.Mode;
 import hudson.security.ACL;
 import hudson.slaves.RetentionStrategy;
 import hudson.util.FormValidation;
@@ -43,6 +44,8 @@ public class AciContainerTemplate extends AbstractDescribableImpl<AciContainerTe
     private String name;
 
     private String label;
+
+    private Mode mode;
 
     private String image;
 
@@ -79,6 +82,7 @@ public class AciContainerTemplate extends AbstractDescribableImpl<AciContainerTe
     @DataBoundConstructor
     public AciContainerTemplate(String name,
                                 String label,
+                                Mode mode,
                                 int timeout,
                                 String osType,
                                 String image,
@@ -93,6 +97,7 @@ public class AciContainerTemplate extends AbstractDescribableImpl<AciContainerTe
                                 String memory) {
         this.name = name;
         this.label = label;
+        this.mode = mode;
         this.image = image;
         this.osType = osType;
         this.command = command;
@@ -138,6 +143,10 @@ public class AciContainerTemplate extends AbstractDescribableImpl<AciContainerTe
 
     public String getLabel() {
         return label;
+    }
+
+    public Mode getMode() {
+        return mode;
     }
 
     public Set<LabelAtom> getLabelSet() {

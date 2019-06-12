@@ -10,6 +10,8 @@
         <f:textbox/>
     </f:entry>
 
+     <f:slave-mode name="mode" node="${instance}" />
+
     <f:entry field="timeout" title="${%Timeout}">
         <f:textbox default="10"/>
     </f:entry>

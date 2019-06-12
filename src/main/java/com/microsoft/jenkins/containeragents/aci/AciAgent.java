@@ -57,7 +57,7 @@ public class AciAgent extends AbstractCloudSlave implements ISSHLaunchable {
                 "",
                 template.getRootFs(),
                 1,
-                Mode.NORMAL,
+                template.getMode(),
                 template.getLabel(),
                 template.getLaunchMethodType().equals(Constants.LAUNCH_METHOD_JNLP)
                         ? new JNLPLauncher()
